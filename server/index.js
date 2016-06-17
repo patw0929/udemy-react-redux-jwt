@@ -15,7 +15,7 @@ app.use(bodyParser.json({ type: '*/*' }));  // parse incoming request middleware
 router(app);
 
 // Server setup
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8888;
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening:', port);
