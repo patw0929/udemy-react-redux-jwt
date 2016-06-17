@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
 const router = require('./router');
+const mongoose = require('mongoose');
+
+// DB setup
+mongoose.connect('mongodb://localhost:auth/udemy_react_redux_jwt');
 
 // App setup
 app.use(morgan('combined'));  // HTTP request logger middleware
