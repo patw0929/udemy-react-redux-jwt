@@ -6,7 +6,6 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <div>React simple starter</div>
         {this.props.children}
       </div>
     );
