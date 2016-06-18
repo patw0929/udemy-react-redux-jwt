@@ -13,24 +13,24 @@ class Signup extends Component {
     return (
       <div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <fieldset className={`form-group ${email.touched && email.invalid ? 'has-    danger' : ''}`}>
+          <fieldset className={`form-group ${email.touched && email.invalid ? 'has-danger' : ''}`}>
             <label>E-mail</label>
             <input {...email} type="email" className="form-control" />
-            <div className="text-help">
+            <div className="error">
               {email.touched ? email.error : ''}
             </div>
           </fieldset>
-          <fieldset className={`form-group ${password.touched && password.invalid ? 'has-    danger' : ''}`}>
+          <fieldset className={`form-group ${password.touched && password.invalid ? 'has-danger' : ''}`}>
             <label>Password</label>
             <input {...password} type="password" className="form-control" />
-            <div className="text-help">
+            <div className="error">
               {password.touched ? password.error : ''}
             </div>
           </fieldset>
-          <fieldset className={`form-group ${passwordConfirm.touched && passwordConfirm.invalid ? 'has-    danger' : ''}`}>
+          <fieldset className={`form-group ${passwordConfirm.touched && passwordConfirm.invalid ? 'has-danger' : ''}`}>
             <label>Confirm Password</label>
             <input {...passwordConfirm} type="password" className="form-control" />
-            <div className="text-help">
+            <div className="error">
               {passwordConfirm.touched ? passwordConfirm.error : ''}
             </div>
           </fieldset>
@@ -55,6 +55,10 @@ function validate(values) {
 
   if (!values.passwordConfirm) {
     errors.passwordConfirm = 'Enter the Confirm Password';
+  }
+
+  if (values.password !== values.passwordConfirm) {
+    errors.passwordConfirm = 'Password must match';
   }
 
   return errors;
